@@ -2,12 +2,12 @@ variable "vpc_id" {
  description = "vpc id"
 }
 
-variable "public_subnet" {
+variable "public_subnets" {
  description = "public subnet"
  default     = []
 }
 
-variable "private_subnet" {
+variable "private_subnets" {
  description = "private subnet"
  default     = []
 }
