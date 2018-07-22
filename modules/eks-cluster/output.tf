@@ -5,3 +5,7 @@ output "cluster-endpoint" {
 output "cluster-security-id" {
   value = "${aws_security_group.cluster.id}"
 }
+
+output "cluster-name" {
+  value = "${aws_security_group.cluster.name"
+}
