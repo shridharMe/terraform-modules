@@ -1,16 +1,6 @@
-variable "vpc_id" {
- description = "vpc id"
-}
-
-variable "private_subnet" {
- description = "private subnet"
- default     = []
-}
-
-variable "public_subnet" {
- description = "public subnet"
- default     = []
-}
+variable "vpc_id" {}
+variable "private_subnet" {}
+variable "public_subnet_cidr" {}
 variable "node-instance-type" {}
 variable "desired-capacity" {}
 variable "max-size" {}

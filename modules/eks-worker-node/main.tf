@@ -77,7 +77,7 @@ resource "aws_security_group_rule" "node-ingress-cluster" {
   protocol                 = "tcp"
   security_group_id        = "${aws_security_group.node.id}"
   #source_security_group_id = "${var.cluster-security-id}"
-  cidr_blocks             = ["${var.public_subnet}"]
+  cidr_blocks             = ["${var.public_subnet_cidr}"]
   to_port                  = 65535
   type                     = "ingress"
 }
