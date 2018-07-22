@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
 pipeline {
     agent {
-        node { label 'ADOP' }
+        node { label 'docker' }
     }
       
     options {
@@ -70,13 +70,17 @@ pipeline {
         success {   
               script {
                                                
-                     bitbucketStatusNotify ( buildState: 'SUCCESSFUL', buildDescription: 'terraform module testing' )                                                
+                      sh '''
+                        echo "some clean-up and notifications "
+                      '''
                 }
         }
         failure {
             script {  
                     
-                    bitbucketStatusNotify(buildState: 'FAILED')                    
+                    sh '''
+                        echo "some clean-up and notifications "
+                      '''                    
              }
         }
     }
