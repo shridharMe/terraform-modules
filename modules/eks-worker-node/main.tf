@@ -1,6 +1,6 @@
 # EKS Worker Nodes Resources
 
-
+data "aws_region" "current" {}
 
 resource "aws_iam_role" "node" {
   name = "${var.cluster-name}-eks-node-role"
