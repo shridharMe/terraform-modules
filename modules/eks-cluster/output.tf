@@ -7,5 +7,13 @@ output "cluster-security-id" {
 }
 
 output "cluster-name" {
-  value = "${aws_security_group.cluster.name"
+  value = "${aws_eks_cluster.eks.name}"
+}
+
+output "cluster-certificate-data" {
+  value = "${aws_eks_cluster.eks.certificate_authority.0.data}"
+}
+
+output "cluster-arn" {
+  value = "${aws_eks_cluster.eks.arn}"
 }
