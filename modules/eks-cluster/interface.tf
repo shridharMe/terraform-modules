@@ -1,15 +1,5 @@
-variable "vpc_id" {
- description = "vpc id"
-}
-
-variable "public_subnets" {
- description = "public subnet"
- default     = []
-}
-
-variable "private_subnets" {
- description = "private subnet"
- default     = []
-}
+variable "vpc_id" {}
+variable "public_subnets" {}
+variable "private_subnets" {}
 variable "cluster-name" {}
 variable "workstation-external-cidr" {}
