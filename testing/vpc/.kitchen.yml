@@ -1,0 +1,26 @@
+driver:
+  name: "terraform"
+  root_module_directory: test/fixtures/wrapper
+
+provisioner:
+  name: "terraform"
+
+verifier:
+  name: "awspec"
+  #sudo: false
+
+platforms:
+  - 
+    name: "aws"
+    driver:
+      variables:
+        vpc_name: test-example
+        user_tag: user
+        environment_tag: dev
+
+suites:
+  - name: extensive_suite
+    verifier:
+      name: "awspec"
+      patterns:
+      - "test/integration/extensive_suite/controls/vpc-test.rb"

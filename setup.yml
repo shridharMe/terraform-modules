@@ -1,0 +1,41 @@
+---
+- hosts: terraform-testing
+  become: true
+
+  tasks:
+  - name: Install yum packages using a list
+    yum:
+     name:
+      - epel-release
+      - gcc-c++
+      - patch
+      - zlib-devel
+      - libyaml-devel
+      - libffi-devel
+      - openssl-devel
+      - autoconf
+      - automake
+      - libtool
+      - bison
+      - sqlite-devel
+      - net-tools
+      - vim
+
+  - name: download get-pip.py
+    get_url: url=https://bootstrap.pypa.io/get-pip.py  dest=/tmp
+
+  - name: install pip
+    command: "python /tmp/get-pip.py"
+
+  - name: delete get-pip.py
+    file: state=absent path=/tmp/get-pip.py
+
+  - name: Install docker
+    shell: |
+      curl -sSL https://get.docker.io | bash
+      pip install docker-compose
+
+  - name: Install ansible roles
+    shell: |
+      ansible-galaxy install tommarshall.awscli --roles-path=/root/.ansible/roles --ignore-errors --force
+      ansible-galaxy install secfigo.terraform --roles-path=/root/.ansible/roles --ignore-errors --force
