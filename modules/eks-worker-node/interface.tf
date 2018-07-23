@@ -7,4 +7,5 @@ variable "max-size" {}
 variable "min-size" {}
 variable "cluster-name" {}
 variable "cluster-endpoint" {}
+variable "cluster-certificate-data" {}
 

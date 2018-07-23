@@ -103,7 +103,7 @@ locals {
 CA_CERTIFICATE_DIRECTORY=/etc/kubernetes/pki
 CA_CERTIFICATE_FILE_PATH=$CA_CERTIFICATE_DIRECTORY/ca.crt
 mkdir -p $CA_CERTIFICATE_DIRECTORY
-echo "${aws_eks_cluster.eks.certificate_authority.0.data}" | base64 -d >  $CA_CERTIFICATE_FILE_PATH
+echo "${var.cluster-certificate-data}" | base64 -d >  $CA_CERTIFICATE_FILE_PATH
 INTERNAL_IP=$(curl -s http://169.254.169.254/latest/meta-data/local-ipv4)
 sed -i s,MASTER_ENDPOINT,${var.cluster-endpoint},g /var/lib/kubelet/kubeconfig
 sed -i s,CLUSTER_NAME,${var.cluster-name},g /var/lib/kubelet/kubeconfig
