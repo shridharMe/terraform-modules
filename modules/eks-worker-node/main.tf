@@ -77,7 +77,7 @@ resource "aws_security_group_rule" "node-ingress-cluster" {
   protocol                 = "tcp"
   security_group_id        = "${aws_security_group.node.id}"
   #source_security_group_id = "${var.cluster-security-id}"
-  cidr_blocks             = "${split(",",var.public_subnet_cidr)}"
+  cidr_blocks             = ["10.1.1.0/24","10.1.2.0/24"]
   to_port                  = 65535
   type                     = "ingress"
 }
@@ -141,7 +141,7 @@ resource "aws_autoscaling_group" "eks" {
   max_size             = "${var.max-size}"
   min_size             = "${var.min-size}"
   name                 = "${var.cluster-name}-eks-asg"
-  vpc_zone_identifier  = "${split(",",var.private_subnet)}"
+  vpc_zone_identifier  = ["subnet-c475c8ea","subnet-1a753350"]
 
   tag {
     key                 = "Name"
