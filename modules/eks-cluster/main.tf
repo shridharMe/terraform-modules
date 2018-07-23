@@ -52,7 +52,7 @@ resource "aws_security_group_rule" "cluster-ingress-node-https" {
   protocol                 = "tcp"
   security_group_id        = "${aws_security_group.cluster.id}"
   //source_security_group_id = "${var.node-security-id}"
-  cidr_blocks             = ["10.1.3.0/24","10.1.4.0/24"]
+  cidr_blocks             = ["${var.private_subnets_cidr}"]
   to_port                  = 443
   type                     = "ingress"
 }
@@ -73,7 +73,7 @@ resource "aws_eks_cluster" "eks" {
 
   vpc_config {
     security_group_ids = ["${aws_security_group.cluster.id}"]
-    subnet_ids         = ["subnet-c277caec","subnet-b07731fa"]
+    subnet_ids         = ["${var.public_subnets}"]
   }
 
   depends_on = [
