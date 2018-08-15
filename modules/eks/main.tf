@@ -39,6 +39,7 @@ module "eks-worker-node" {
 
 module "kube-config" {
   source                            = "../eks/eks-kube-config"
+  cluster-name                      = "${module.eks-cluster.cluster-name}"
   role_node_arn                     = "${module.eks-worker-node.node-role-arn}"
   cluster_eks_endpoint              = "${module.eks-cluster.cluster-endpoint}"
   cluster_eks_certificate_authority = "${module.eks-cluster.cluster-certificate-data}"
