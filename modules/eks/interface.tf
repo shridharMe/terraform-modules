@@ -3,15 +3,15 @@ variable "name" {
 }
 
 variable "environment" {
-  description = "The name of the VPC"
+  description = "The name of the environment"
 }
 
 variable "terraform" {
-  description = "The name of the VPC"
+  description = "created by using terraform"
 }
 
 variable "owner" {
-  description = "The name of the VPC"
+  description = "The name of the VPC owner"
 }
 
 variable "cidr" {
@@ -48,12 +48,26 @@ variable "tags" {
   default     = {}
 }
 
-variable "enable_nat_gateway" {
-  description = "Do you you want NAT Gateway for each private subnet"
-  default     = "false"
+variable "cluster-name" {
+  description = "cluster name"
 }
 
-variable "public_eip_id" {
-  description = "A list of public IP ID"
-  default     = []
+variable "node-instance-type" {
+  default = ""
+}
+
+variable "desired-capacity" {
+  default = ""
+}
+
+variable "max-size" {
+  default = ""
+}
+
+variable "min-size" {
+  default = ""
+}
+
+variable "cluster-name" {
+  default = "dev-eks"
 }

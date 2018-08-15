@@ -7,7 +7,8 @@ resource "aws_vpc" "eks" {
   cidr_block           = "${var.cidr}"
   enable_dns_hostnames = "${var.enable_dns_hostnames}"
   enable_dns_support   = "${var.enable_dns_support}"
-  tags              {
+
+  tags {
     Name        = "${var.name}"
     Environment = "${var.environment}"
     Terraform   = "${var.terraform}"
@@ -17,10 +18,9 @@ resource "aws_vpc" "eks" {
 
 ##internet gateway attached the vpc
 resource "aws_internet_gateway" "eks" {
-
   vpc_id = "${aws_vpc.eks.id}"
 
-  tags  {
+  tags {
     Name = "${var.name}-internet-gateway"
   }
 }
@@ -53,8 +53,9 @@ resource "aws_subnet" "private" {
   cidr_block        = "${var.private_subnets[count.index]}"
   availability_zone = "${element(var.azs, count.index)}"
   count             = "${length(var.private_subnets)}"
+
   #tags              = "${merge(var.tags, map("Name", format("%s-private-%s", var.name, element(var.azs, count.index))))}"
-  tags              {
+  tags {
     Name        = "${format("%s-private-%s", var.name, element(var.azs, count.index))}"
     Environment = "${var.environment}"
     Terraform   = "${var.terraform}"
@@ -68,9 +69,10 @@ resource "aws_subnet" "public" {
   cidr_block        = "${var.public_subnets[count.index]}"
   availability_zone = "${element(var.azs, count.index)}"
   count             = "${length(var.public_subnets)}"
+
   #tags              = "${merge(var.tags, map("Name", format("%s-public-%s", var.name, element(var.azs, count.index))))}"
 
-    tags              {
+  tags {
     Name        = "${format("%s-public-%s", var.name, element(var.azs, count.index))}"
     Environment = "${var.environment}"
     Terraform   = "${var.terraform}"
