@@ -31,9 +31,9 @@ output "node-role-arn" {
 }
 
 output "config-map-aws-auth" {
-  value = "${module.config-map-aws-auth}"
+  value = "${module.kube-config.config-map-aws-auth}"
 }
 
 output "kubeconfig" {
-  value = "${module.kubeconfig}"
+  value = "${module.kube-config.kubeconfig}"
 }
