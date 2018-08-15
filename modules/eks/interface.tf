@@ -48,10 +48,6 @@ variable "tags" {
   default     = {}
 }
 
-variable "cluster-name" {
-  description = "cluster name"
-}
-
 variable "node-instance-type" {
   default = ""
 }
