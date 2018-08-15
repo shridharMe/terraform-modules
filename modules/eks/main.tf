@@ -25,7 +25,7 @@ module "eks-cluster" {
 
 module "eks-worker-node" {
   source                   = "../eks/eks-worker-node"
-  vpc_id                   = "${module.vpc.vpc.vpc_id}"
+  vpc_id                   = "${module.vpc.vpc_id}"
   cluster-name             = "${module.eks-cluster.cluster-name}"
   cluster-endpoint         = "${module.eks-cluster.cluster-endpoint}"
   cluster-certificate-data = "${module.eks-cluster.cluster-certificate-data}"
@@ -39,7 +39,7 @@ module "eks-worker-node" {
 
 module "kube-config" {
   source                            = "../eks/eks-kube-config"
-  role_node_arn                     = "${module.eks-worker-node.role_node_arn}"
-  cluster_eks_endpoint              = "${module.eks-cluster.cluster_eks_endpoint}"
+  role_node_arn                     = "${module.eks-worker-node.node-role-arn}"
+  cluster_eks_endpoint              = "${module.eks-cluster.cluster-endpoint}"
   cluster_eks_certificate_authority = "${module.eks-cluster.cluster-certificate-data}"
 }
