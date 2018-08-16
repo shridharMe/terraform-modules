@@ -53,3 +53,9 @@ variable "task_definition_memory" {}
 
 variable "task_definition_cpu" {}
 variable "container_definitions" {}
+
+variable "container_port" {}
+variable "host_port" {}
+
+variable "image" {}
+variable "image_version" {}
