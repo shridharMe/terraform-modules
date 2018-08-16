@@ -32,23 +32,37 @@ resource "aws_security_group" "alb-sg" {
   }
 
   tags {
-    Name        = "${format("%s-private-%s", var.name, element(var.azs, count.index))}"
+    Name        = "${var.name_prefix}-alb-sg"
     Environment = "${var.environment}"
     Terraform   = "${var.terraform}"
     Owner       = "${var.owner}"
   }
 }
 
+module "alb" {
+  source          = "../alb"
+  name            = "${var.name_prefix}-alb"
+  internal        = "${var.internal}"
+  security_groups = "${aws_security_group.alb-sg}"
+  subnets         = "${module.vpc.public_subnets}"
+  environment     = "${var.environment}"
+  terraform       = "${var.terraform}"
+  Owner           = "${var.Owner}"
+  route53zoneid   = "${var.route53zoneid}"
+  route53type     = "${var.route53type}"
+  route53ttl      = "${var.route53ttl}"
+}
+
 module "target_group_task" {
   source            = "../alb/target-group"
-  name              = "${var.name_prefix}-target-group"
+  name              = "${var.name_prefix}-alb-target-group"
   vpc_id            = "${module.vpc.vpc_id}"
   health_check_path = "${var.alb-health_check_path}"
 }
 
 module "listener" {
   source                   = "../alb/listener/https"
-  alb_arn                  = "${aws_alb.alb.arn}"
+  alb_arn                  = "${module.alb.arn}"
   ssl_policy               = "${var.ssl_policy}"
   certificate_arn          = "${var.certificate_arn}"
   default_target_group_arn = "${module.target_group_task.arn}"

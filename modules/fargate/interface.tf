@@ -17,9 +17,14 @@ variable "azs" {}
 variable "environment" {}
 variable "owner" {}
 variable "terraform" {}
+//alb
+
+  variable "route53zoneid"   {}
+  variable "route53type"     {}
+  variable "route53ttl"      {}
 
 //alb-sg
-variable "source_cidr_block_inbound" {
+variable "variable "variable "source_cidr_block_inbound" {
   type = "list"
 }
 
