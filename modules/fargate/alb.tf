@@ -1,7 +1,19 @@
+module "vpc" {
+  source          = "../vpc"
+  name            = "${var.environment}-${var.name_prefix}-vpc"
+  cidr            = "${var.cidr}"
+  public_subnets  = "${var.public_subnets_cidr}"
+  private_subnets = "${var.private_subnets_cidr}"
+  azs             = "${var.azs}"
+  owner           = "${var.owner}"
+  environment     = "${var.environment}"
+  terraform       = "${var.terraform}"
+}
+
 # Create a new load balancer
 resource "aws_security_group" "alb-sg" {
   description = "controls access to elb"
-  vpc_id      = "${var.vpc_id}"
+  vpc_id      = "${module.vpc.vpc_id}"
   name        = "${var.name_prefix}-alb-sg"
 
   ingress {
@@ -19,13 +31,18 @@ resource "aws_security_group" "alb-sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags = "${var.tags}"
+  tags {
+    Name        = "${format("%s-private-%s", var.name, element(var.azs, count.index))}"
+    Environment = "${var.environment}"
+    Terraform   = "${var.terraform}"
+    Owner       = "${var.owner}"
+  }
 }
 
 module "target_group_task" {
   source            = "../alb/target-group"
   name              = "${var.name_prefix}-target-group"
-  vpc_id            = "${vars.vpc_id}"
+  vpc_id            = "${module.vpc.vpc_id}"
   health_check_path = "${var.alb-health_check_path}"
 }
 

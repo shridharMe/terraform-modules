@@ -14,7 +14,6 @@ output "private_subnets_cidr" {
   value = "${aws_subnet.private.*.cidr_block}"
 }
 
-
 output "public_subnets" {
   value = "${aws_subnet.public.*.id}"
 }
@@ -22,7 +21,6 @@ output "public_subnets" {
 output "public_subnets_cidr" {
   value = "${aws_subnet.public.*.cidr_block}"
 }
-
 
 output "private_route_tables" {
   value = ["${aws_route_table.private.*.id}"]

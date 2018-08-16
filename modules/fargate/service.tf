@@ -13,7 +13,7 @@ resource "aws_ecs_service" "service" {
   health_check_grace_period_seconds  = "${var.health_check_grace_period_seconds}"
 
   network_configuration {
-    subnets          = ["${var.private_subnet_ids}"]
+    subnets          = ["${module.vpc.private_subnets}"]
     security_groups  = ["${aws_security_group.ecs_service_sg.id}"]
     assign_public_ip = "${var.task_container_assign_public_ip}"
   }
