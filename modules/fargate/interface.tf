@@ -40,7 +40,7 @@ variable "path_pattern" {}
 variable "log_retention_in_days" {}
 
 //fargate service
-vriable "desired_count" {}
+variable "desired_count" {}
 
 variable "minimum_healthy_percent" {}
 variable "maximum_healthy_percent" {}
