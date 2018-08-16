@@ -1,11 +1,11 @@
 resource "aws_alb" "alb" {
-  name            = "${var.name}"
+  name            = "${var.name_prefix}"
   internal        = "${var.internal}"
   security_groups = "${var.security_groups}"
   subnets         = "${var.subnets}"
 
   tags {
-    Name        = "${var.name}"
+    Name        = "${var.name_prefix}"
     Environment = "${var.environment}"
     Terraform   = "${var.terraform}"
     Owner       = "${var.owner}"
