@@ -24,7 +24,7 @@ variable "terraform" {}
   variable "route53ttl"      {}
 
 //alb-sg
-variable "variable "variable "source_cidr_block_inbound" {
+variable "source_cidr_block_inbound" {
   type = "list"
 }
 
