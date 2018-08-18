@@ -7,6 +7,11 @@ variable "port" {
   default     = "80"
 }
 
+variable "target_type" {
+  default ="instance"
+}
+
+
 variable "protocol" {
   description = "The target group protocol"
   default     = "HTTP"

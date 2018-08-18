@@ -58,6 +58,7 @@ module "target_group_task" {
   name              = "${var.name_prefix}-alb-target-group"
   vpc_id            = "${module.vpc.vpc_id}"
   health_check_path = "${var.alb-health_check_path}"
+  target_type       = "ip"
 }
 
 module "listener" {
