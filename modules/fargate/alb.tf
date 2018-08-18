@@ -43,8 +43,8 @@ module "alb" {
   source          = "../alb"
   name_prefix     = "${var.name_prefix}-alb"
   internal        = "${var.internal}"
-  security_groups = "${aws_security_group.alb-sg.id}"
-  subnets         = "${module.vpc.public_subnets}"
+  security_groups = ["${aws_security_group.alb-sg.id}"]
+  subnets         = ["${module.vpc.public_subnets}"]
   environment     = "${var.environment}"
   terraform       = "${var.terraform}"
   owner           = "${var.owner}"
