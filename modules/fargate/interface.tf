@@ -13,6 +13,7 @@ variable "private_subnets_cidr" {
   type = "list"
 }
 
+varaible "aws_cloudwatch_arn" {}
 varaible "internal" {}
 variable "azs" {}
 variable "environment" {}
