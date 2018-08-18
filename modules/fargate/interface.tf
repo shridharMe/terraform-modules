@@ -3,6 +3,7 @@
 //vpc
 variable "name_prefix" {}
 
+
 variable "cidr" {}
 
 variable "public_subnets_cidr" {
@@ -59,6 +60,8 @@ variable "task_container_assign_public_ip" {}
 variable "task_container_port" {}
 
 // fargate task
+
+variable "container_name" {}
 variable "task_definition_memory" {}
 
 variable "task_definition_cpu" {}
