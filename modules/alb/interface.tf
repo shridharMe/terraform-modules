@@ -2,9 +2,7 @@ variable "name_prefix" {
   type = "string"
 }
 
-variable "vpc_id" {
-  type = "string"
-}
+ 
 
 variable "internal" {
   description = "Sets if the ALB is internal facing"
@@ -27,7 +25,7 @@ variable "tags" {
   }
 }
 
-variable "alb_name" {}
+
 variable "route53zoneid" {}
 
 variable "route53type" {

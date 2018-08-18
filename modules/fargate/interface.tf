@@ -13,6 +13,7 @@ variable "private_subnets_cidr" {
   type = "list"
 }
 
+varaible "internal" {}
 variable "azs" {}
 variable "environment" {}
 variable "owner" {}
