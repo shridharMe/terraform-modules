@@ -2,6 +2,19 @@ variable "name_prefix" {
   type = "string"
 }
 
+variable "environment" {
+  type = "string"
+}
+
+variable "terraform" {
+  type = "string"
+}
+
+variable "owner" {
+  type = "string"
+}
+
+
  
 
 variable "internal" {

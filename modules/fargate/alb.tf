@@ -47,7 +47,7 @@ module "alb" {
   subnets         = "${module.vpc.public_subnets}"
   environment     = "${var.environment}"
   terraform       = "${var.terraform}"
-  Owner           = "${var.Owner}"
+  owner           = "${var.owner}"
   route53zoneid   = "${var.route53zoneid}"
   route53type     = "${var.route53type}"
   route53ttl      = "${var.route53ttl}"

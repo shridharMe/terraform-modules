@@ -11,5 +11,10 @@ resource "aws_security_group" "ecs_service_sg" {
     ipv6_cidr_blocks = ["::/0"]
   }
 
-  tags = "${var.tags}"
+  tags {
+    Name        = "${var.name_prefix}"
+    Environment = "${var.environment}"
+    Terraform   = "${var.terraform}"
+    Owner       = "${var.owner}"
+  }
 }
