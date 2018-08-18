@@ -1,8 +1,8 @@
 resource "aws_alb" "alb" {
   name            = "${var.name_prefix}"
   internal        = "${var.internal}"
-  security_groups = "${var.security_groups}"
-  subnets         = "${var.subnets}"
+  security_groups = ["${var.security_groups}"]
+  subnets         = ["${var.subnets}"]
 
   tags {
     Name        = "${var.name_prefix}"
