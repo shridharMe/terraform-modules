@@ -14,9 +14,6 @@ variable "owner" {
   type = "string"
 }
 
-
- 
-
 variable "internal" {
   description = "Sets if the ALB is internal facing"
   default     = false
@@ -37,7 +34,6 @@ variable "tags" {
     created_by = "terraform"
   }
 }
-
 
 variable "route53zoneid" {}
 
