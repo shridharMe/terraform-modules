@@ -28,6 +28,7 @@ variable "terraform" {}
 variable "route53zoneid" {}
 variable "route53type" {}
 variable "route53ttl" {}
+variable "alb_target_type" {}
 
 //alb-sg
 variable "source_cidr_block_inbound" {
