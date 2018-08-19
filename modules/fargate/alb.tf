@@ -59,6 +59,7 @@ module "target_group_task" {
   vpc_id            = "${module.vpc.vpc_id}"
   health_check_path = "${var.alb-health_check_path}"
   target_type       = "ip"
+  port              = "${var.task_container_port}"
 }
 
 module "listener" {
