@@ -27,8 +27,7 @@ resource "aws_autoscaling_group" "main_asg" {
 
   force_delete = true
 
-  # The chosen availability zones *must* match the AZs the VPC subnets are tied to.
-  # availability_zones  = ["${var.availability_zones}"]
+  
   vpc_zone_identifier = ["${var.vpc_zone_subnets}"]
 
   # Uses the ID from the launch config created above
