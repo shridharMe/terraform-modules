@@ -8,9 +8,8 @@ variable "port" {
 }
 
 variable "target_type" {
-  default ="instance"
+  default = "instance"
 }
-
 
 variable "protocol" {
   description = "The target group protocol"

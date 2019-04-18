@@ -27,7 +27,6 @@ resource "aws_autoscaling_group" "main_asg" {
 
   force_delete = true
 
-  
   vpc_zone_identifier = ["${var.vpc_zone_subnets}"]
 
   # Uses the ID from the launch config created above

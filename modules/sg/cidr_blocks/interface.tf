@@ -1,4 +1,3 @@
-
 variable "sg_type" {}
 variable "to_port" {}
 variable "protocol" {}

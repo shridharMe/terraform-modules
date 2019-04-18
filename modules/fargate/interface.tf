@@ -3,7 +3,6 @@
 //vpc
 variable "name_prefix" {}
 
-
 variable "cidr" {}
 
 variable "public_subnets_cidr" {
@@ -16,9 +15,11 @@ variable "private_subnets_cidr" {
 
 variable "aws_cloudwatch_arn" {}
 variable "internal" {}
+
 variable "azs" {
   type = "list"
 }
+
 variable "environment" {}
 variable "owner" {}
 variable "terraform" {}

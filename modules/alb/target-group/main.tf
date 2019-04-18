@@ -1,9 +1,9 @@
 resource "aws_alb_target_group" "target_group" {
-  name     = "${var.name}"
-  port     = "${var.port}"
-  protocol = "${var.protocol}"
-  vpc_id   = "${var.vpc_id}"
-  tags     = "${var.tags}"
+  name        = "${var.name}"
+  port        = "${var.port}"
+  protocol    = "${var.protocol}"
+  vpc_id      = "${var.vpc_id}"
+  tags        = "${var.tags}"
   target_type = "${var.target_type}"
 
   deregistration_delay = "${var.deregistration_delay}"
