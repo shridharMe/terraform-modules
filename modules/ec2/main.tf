@@ -1,7 +1,3 @@
-/* module for creating ec2 instance, use the interface.tf as the ref. for variables */
-
-/* have a look here as a ref https://github.com/terraform-community-modules/tf_aws_ec2_instance and the terraform book */
-
 resource "aws_instance" "ec2_instance" {
   ami = "${var.ami_id}"
 
