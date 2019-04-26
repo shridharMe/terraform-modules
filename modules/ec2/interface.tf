@@ -31,7 +31,7 @@ variable "subnet_ids" {
 
 variable "ami_id" {
   description = "The AMI to use"
-  default     = "ami-70edb016"
+ 
 }
 
 variable "number_of_instances" {
@@ -56,7 +56,7 @@ variable "security_groups" {
 
 variable "route53_zone_id" {
   description = "zone id for the image"
-  default     = "Z39YUFVEP74CTL"
+ 
 }
 
 variable "volume_size" {
