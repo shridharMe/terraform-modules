@@ -9,6 +9,7 @@ resource "aws_alb" "alb" {
     Environment = "${var.environment}"
     Terraform   = "${var.terraform}"
     Owner       = "${var.owner}"
+    Project     = "${var.project}"
   }
 }
 
